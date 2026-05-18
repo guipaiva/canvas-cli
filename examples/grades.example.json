@@ -1,0 +1,23 @@
+[
+  {
+    "student_name": "Alice Silva",
+    "score": 8.5,
+    "comment": "Good work. Exercise 3 used map() instead of reduce()."
+  },
+  {
+    "student_name": "Bob Souza",
+    "score": 9.0,
+    "comment": "Excellent. Clean code and well-structured."
+  },
+  {
+    "student_name": "Carol Lima",
+    "score": 7.0,
+    "comment": "Missing error handling in exercise 2.",
+    "also_post_to": ["David Pereira"]
+  },
+  {
+    "student_name": "Eve Costa",
+    "score": -1,
+    "comment": "Grading failed — re-run"
+  }
+]

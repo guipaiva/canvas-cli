@@ -1,0 +1,12 @@
+# .canvas.toml — place at your project root
+# Canvas CLI reads this automatically when run from the project directory or any subdirectory.
+
+[canvas]
+base_url = "https://your-institution.instructure.com"
+# token = "..."  # prefer CANVAS_API_TOKEN env var instead
+
+[aliases]
+# Map friendly course codes to numeric Canvas course IDs.
+# Use: canvas submissions --course MY-COURSE-P --assignment 12345
+"MY-COURSE-P" = 88001
+"MY-COURSE-T" = 88002
