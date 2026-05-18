@@ -1,0 +1,14 @@
+{
+  "name": "canvas-cli",
+  "owner": {
+    "name": "guipaiva",
+    "url": "https://github.com/guipaiva"
+  },
+  "plugins": [
+    {
+      "name": "canvas-cli",
+      "source": ".",
+      "description": "Generic Canvas LMS CLI for teachers — submissions, grading, pages, announcements"
+    }
+  ]
+}

@@ -4,14 +4,35 @@ A generic Canvas LMS CLI for teachers. Supports listing submissions, downloading
 
 ## Install
 
-```bash
-pip install -e .
+### As a Claude Code plugin (recommended)
+
+```shell
+# 1. Add the marketplace (one-time)
+/plugin marketplace add guipaiva/canvas-cli
+
+# 2. Install the plugin
+/plugin install canvas-cli@canvas-cli
+
+# 3. Install the Python package (required for the `canvas` command)
+pip install -e ~/.claude/plugins/cache/canvas-cli/canvas-cli/*/
+
+# 4. Reload plugins
+/reload-plugins
 ```
 
-Or from GitHub:
+> **Why the pip step?** Claude Code plugins don't auto-install Python packages. The `canvas` command must be on your PATH for the skill to work.
+
+### As a standalone package
 
 ```bash
 pip install git+https://github.com/guipaiva/canvas-cli
+```
+
+Or for local development:
+
+```bash
+git clone https://github.com/guipaiva/canvas-cli
+pip install -e ./canvas-cli
 ```
 
 ## Setup
