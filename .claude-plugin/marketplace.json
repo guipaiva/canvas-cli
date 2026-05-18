@@ -7,7 +7,10 @@
   "plugins": [
     {
       "name": "canvas-cli",
-      "source": "https://github.com/guipaiva/canvas-cli.git",
+      "source": {
+        "source": "github",
+        "repo": "guipaiva/canvas-cli"
+      },
       "description": "Generic Canvas LMS CLI for teachers — submissions, grading, pages, announcements"
     }
   ]
