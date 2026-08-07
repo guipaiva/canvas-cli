@@ -1,6 +1,6 @@
 # canvas-cli
 
-A generic Canvas LMS CLI for teachers. Supports listing submissions, downloading student work, bulk grading, creating pages and assignments from markdown, and posting announcements.
+A generic Canvas LMS CLI for teachers. Supports listing submissions, downloading student work, bulk grading, creating pages and assignments from markdown, uploading files, building course modules, and posting announcements.
 
 ## Install
 
@@ -143,6 +143,56 @@ canvas assign-create \
   --due "2026-05-30 23:59"
 ```
 Creates a **draft** assignment — publish manually at class time.
+
+### `file-upload`
+```bash
+canvas file-upload --course MY-COURSE-T --file "Lecture 3 slides.pdf" --folder Slides
+```
+Uploads as **unpublished** (locked) — publish manually in Canvas. The `--folder` path is created if it doesn't exist, nested paths included. `--on-duplicate overwrite` (the default) replaces a same-named file in place, keeping its ID; pass `--on-duplicate rename` to keep both. `--name` overrides the display name.
+
+### `modules`
+```bash
+canvas modules --course MY-COURSE-T
+canvas modules --course MY-COURSE-T --no-items
+```
+Shows publish state (`✓`/`○`), item type, indent level and content IDs — the IDs you pass to `module-item-add --content-id`.
+
+### `module-create`
+```bash
+canvas module-create --course MY-COURSE-T --name "Block A — Fundamentals"
+```
+Creates an **unpublished** module with no prerequisites and no sequential-progress requirement. Refuses to create a second module with the same name.
+
+### `module-item-add`
+```bash
+canvas module-item-add --course MY-COURSE-T --module "Block A" \
+  --type File --title "Lecture 3 slides" --content-id 4224744 --indent 1
+```
+
+`--module` accepts a module ID or part of the module name. Each type takes exactly one content reference:
+
+| `--type` | Content flag |
+|---|---|
+| `SubHeader` | *(none)* |
+| `File`, `Assignment` | `--content-id` |
+| `Page` | `--page-url` |
+| `ExternalUrl` | `--url` (plus optional `--new-tab`) |
+
+Warns when the target module is already published — the item becomes visible to students immediately.
+
+### Weekly workflow
+
+Uploading a lecture's material and filing it under the aula's subheading:
+
+```bash
+canvas file-upload      --course MY-COURSE-T --file "Lecture 3.pdf" --folder Slides
+canvas assign-create    --course MY-COURSE-T --title "Homework 3" --from-file hw3.md --points 10
+canvas module-item-add  --course MY-COURSE-T --module "Block A" --type SubHeader  --title "Lecture 3 — Collections"
+canvas module-item-add  --course MY-COURSE-T --module "Block A" --type File       --title "Slides — Lecture 3" --content-id <file id>       --indent 1
+canvas module-item-add  --course MY-COURSE-T --module "Block A" --type Assignment --title "Homework 3"         --content-id <assignment id> --indent 1
+```
+
+Everything lands unpublished; publish at class time from Canvas.
 
 ### `announce`
 ```bash

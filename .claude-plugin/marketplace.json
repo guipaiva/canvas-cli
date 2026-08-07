@@ -11,7 +11,7 @@
         "source": "github",
         "repo": "guipaiva/canvas-cli"
       },
-      "description": "Generic Canvas LMS CLI for teachers — submissions, grading, pages, announcements"
+      "description": "Generic Canvas LMS CLI for teachers — submissions, grading, pages, files, modules, announcements"
     }
   ]
 }
