@@ -9,6 +9,7 @@ from canvas_cli.client import CanvasClient
 EXPECTED_COMMANDS = {
     "submissions", "download", "assignments", "roster", "grade",
     "post-grades", "page-create", "page-update", "assign-create", "announce",
+    "modules",
 }
 
 
