@@ -4,6 +4,7 @@
 Subcommands:
     submissions      List submission status for an assignment
     download         Download submission files locally
+    file-upload      Upload a local file into a course's Files (unpublished)
     assignments      List assignments in a course
     roster           List enrolled students
     grade            Post a grade to one student
@@ -12,6 +13,8 @@ Subcommands:
     page-update      Update title or publish state of an existing page
     assign-create    Create a Canvas assignment from a markdown file (draft)
     modules          List modules and their items
+    module-create    Create a module (unpublished, no progression policy)
+    module-item-add  Add an item to a module (SubHeader/File/Assignment/Page/URL)
     announce         Post a course announcement
 
 Configuration:
@@ -37,7 +40,10 @@ from canvas_cli.commands import (
     assign_create,
     assignments,
     download,
+    file_upload,
     grade,
+    module_create,
+    module_item_add,
     modules,
     page_create,
     page_update,
@@ -57,6 +63,9 @@ _COMMANDS = {
     "page-update":     page_update,
     "assign-create":   assign_create,
     "modules":         modules,
+    "module-create":   module_create,
+    "file-upload":     file_upload,
+    "module-item-add": module_item_add,
     "announce":        announce,
 }
 

@@ -136,7 +136,7 @@ def _download_individual_subs(
             for c in (s.get("submission_comments") or [])
             if c.get("comment")
         ]
-        submitted = _download_files(s, dest / safe_dirname(name), client._token, name)
+        submitted = _download_files(s, dest / safe_dirname(name), client.token, name)
         students.append(
             {"name": name, "user_id": uid, "submitted": submitted, "comments": comments}
         )
@@ -185,7 +185,7 @@ def _download_group_subs(
                 if c.get("comment")
             ]
         submitted = (
-            _download_files(rep_sub, dest / group_label, client._token, group_name)
+            _download_files(rep_sub, dest / group_label, client.token, group_name)
             if rep_sub
             else False
         )
@@ -211,7 +211,7 @@ def _download_group_subs(
             for c in (s.get("submission_comments") or [])
             if c.get("comment")
         ]
-        submitted = _download_files(s, dest / safe_dirname(name), client._token, name)
+        submitted = _download_files(s, dest / safe_dirname(name), client.token, name)
         students.append(
             {"name": name, "user_id": uid, "submitted": submitted, "comments": comments}
         )
