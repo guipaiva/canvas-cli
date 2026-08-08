@@ -1,6 +1,6 @@
 {
   "name": "canvas-cli",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Generic Canvas LMS CLI for teachers",
   "skills": [
     "./skills/canvas"

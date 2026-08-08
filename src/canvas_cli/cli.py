@@ -2,16 +2,20 @@
 """canvas — A generic Canvas LMS CLI for teachers.
 
 Subcommands:
-    submissions    List submission status for an assignment
-    download       Download submission files locally
-    assignments    List assignments in a course
-    roster         List enrolled students
-    grade          Post a grade to one student
-    post-grades    Post grades from a JSON file (bulk)
-    page-create    Create a Canvas page from a markdown file (draft)
-    page-update    Update title or publish state of an existing page
-    assign-create  Create a Canvas assignment from a markdown file (draft)
-    announce       Post a course announcement
+    submissions      List submission status for an assignment
+    download         Download submission files locally
+    file-upload      Upload a local file into a course's Files (unpublished)
+    assignments      List assignments in a course
+    roster           List enrolled students
+    grade            Post a grade to one student
+    post-grades      Post grades from a JSON file (bulk)
+    page-create      Create a Canvas page from a markdown file (draft)
+    page-update      Update title or publish state of an existing page
+    assign-create    Create a Canvas assignment from a markdown file (draft)
+    modules          List modules and their items
+    module-create    Create a module (unpublished, no progression policy)
+    module-item-add  Add an item to a module (SubHeader/File/Assignment/Page/URL)
+    announce         Post a course announcement
 
 Configuration:
     Set CANVAS_API_TOKEN (env) and create .canvas.toml in your project root:
@@ -36,7 +40,11 @@ from canvas_cli.commands import (
     assign_create,
     assignments,
     download,
+    file_upload,
     grade,
+    module_create,
+    module_item_add,
+    modules,
     page_create,
     page_update,
     post_grades,
@@ -45,16 +53,20 @@ from canvas_cli.commands import (
 )
 
 _COMMANDS = {
-    "submissions":   submissions,
-    "download":      download,
-    "assignments":   assignments,
-    "roster":        roster,
-    "grade":         grade,
-    "post-grades":   post_grades,
-    "page-create":   page_create,
-    "page-update":   page_update,
-    "assign-create": assign_create,
-    "announce":      announce,
+    "submissions":     submissions,
+    "download":        download,
+    "assignments":     assignments,
+    "roster":          roster,
+    "grade":           grade,
+    "post-grades":     post_grades,
+    "page-create":     page_create,
+    "page-update":     page_update,
+    "assign-create":   assign_create,
+    "modules":         modules,
+    "module-create":   module_create,
+    "file-upload":     file_upload,
+    "module-item-add": module_item_add,
+    "announce":        announce,
 }
 
 

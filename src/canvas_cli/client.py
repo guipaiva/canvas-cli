@@ -15,6 +15,12 @@ class CanvasClient:
     def _headers(self) -> dict:
         return {"Authorization": f"Bearer {self._token}"}
 
+    @property
+    def token(self) -> str:
+        """Read-only accessor — commands that talk to absolute Canvas storage
+        URLs (download, file-upload) build their own headers."""
+        return self._token
+
     def get_all(self, path: str, params: dict | None = None) -> list:
         url = f"{self._base}{path}"
         results = []
